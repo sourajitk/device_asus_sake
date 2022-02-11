@@ -7,6 +7,8 @@
 #include <compositionengine/UdfpsExtension.h>
 #include <display/drm/sde_drm.h>
 
+#define FOD_PRESSED_LAYER_ZORDER 0x20000000u
+
 uint32_t getUdfpsZOrder(uint32_t z, bool touched) {
     if (touched) {
         z |= FOD_PRESSED_LAYER_ZORDER;
