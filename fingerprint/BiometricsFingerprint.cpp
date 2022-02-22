@@ -35,6 +35,7 @@
 #define CMD_PARTIAL_FINGER_DETECTED 200004
 
 #define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui"
+#define FOD_PRESSED_LAYER_ZORDER 0x20000000u
 
 namespace android {
 namespace hardware {
