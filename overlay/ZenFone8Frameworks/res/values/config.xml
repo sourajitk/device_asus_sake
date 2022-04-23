@@ -421,4 +421,7 @@
     <!-- Slow brightness animation ramp rate in brightness units per second -->
     <integer translatable="false" name="config_brightness_ramp_rate_slow">200</integer>
 
+    <!-- Flag indicating whether we should enable the adaptive sleep.-->
+    <bool name="config_adaptive_sleep_available">true</bool>
+
 </resources>
