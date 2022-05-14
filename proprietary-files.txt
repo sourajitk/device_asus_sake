@@ -748,8 +748,8 @@ vendor/lib64/vendor.display.color@1.4.so|6e4cffe7b1a287dee9c4fb9b8e08ddac50b916b
 vendor/lib64/vendor.display.color@1.5.so|0474d3d9123fd38538a3cd1e3c267608d71b7126
 vendor/lib64/vendor.display.postproc@1.0.so|f82e704e275c25ef27ff37cdbbfb2360e53c2611
 
-# Display (OSS)
-vendor/etc/snapdragon_color_libs_config.xml
+# Display (OSS) - [From 31.1010.0410.61]
+vendor/etc/snapdragon_color_libs_config.xml|7d84f79d1191efa8b9e6e37cb02061db530e5be8
 
 # Display (Pixelworks)
 vendor/etc/irissoft_s.fw
