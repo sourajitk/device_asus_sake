@@ -153,6 +153,8 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     lights.qcom
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.supports_background_blur=1
+
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
