@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Pixel Launcher
+INCLUDE_PIXEL_LAUNCHER := true
+
 # Inherit from our proprietary files directory.
 $(call inherit-product, vendor/asus/sake/sake-vendor.mk)
 
