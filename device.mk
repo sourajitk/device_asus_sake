@@ -200,6 +200,15 @@ PRODUCT_PACKAGES += \
     ueventd.asus.rc \
     ueventd.qcom.rc
 
+# Kernel Binary
+TARGET_KERNEL_DIR ?= device/asus/sake-kernel
+LOCAL_KERNEL := $(TARGET_KERNEL_DIR)/Image
+
+PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
+
+# Kernel Headers
+PRODUCT_VENDOR_KERNEL_HEADERS := device/asus/sake-kernel/kernel-headers
+
 # Keymaster
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
@@ -244,8 +253,7 @@ PRODUCT_USES_ESE := false
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    kernel/asus/sm8350
+    $(LOCAL_PATH)
 
 # Networking
 PRODUCT_PACKAGES += \
