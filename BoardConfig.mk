@@ -64,7 +64,9 @@ BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # DTBO
-BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_USES_DT := true
+BOARD_PREBUILT_DTBIMAGE_DIR := $(TARGET_KERNEL_DIR)
+BOARD_PREBUILT_DTBOIMAGE := $(BOARD_PREBUILT_DTBIMAGE_DIR)/dtbo.img
 
 # Display
 include hardware/qcom-caf/sm8350/display/config/display-board.mk
@@ -97,6 +99,9 @@ ODM_MANIFEST_ESE_FILES := $(DEVICE_PATH)/hidl/eSE_manifest.xml
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Kernel
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_NO_KERNEL := false
+
 BOARD_KERNEL_CMDLINE := \
     androidboot.console=ttyMSM0 \
     androidboot.hardware=qcom \
@@ -113,95 +118,6 @@ BOARD_KERNEL_CMDLINE := \
     service_locator.enable=1 \
     swiotlb=0
 
-BOARD_VENDOR_KERNEL_MODULES_LOAD := \
-    adsp_loader_dlkm.ko \
-    apr_dlkm.ko \
-    aw8697.ko \
-    bolero_cdc_dlkm.ko \
-    bt_fm_slim.ko \
-    btpower.ko \
-    camera.ko \
-    cs35l45_i2c_dlkm.ko \
-    e4000.ko \
-    fc0011.ko \
-    fc0012.ko \
-    fc0013.ko \
-    fc2580.ko \
-    focaltech_fts_zf.ko \
-    gf_spi.ko \
-    hdmi_dlkm.ko \
-    hid-aksys.ko \
-    icm206xx.ko \
-    it913x.ko \
-    llcc_perfmon.ko \
-    m88rs6000t.ko \
-    machine_dlkm.ko \
-    max2165.ko \
-    mbhc_dlkm.ko \
-    mc44s803.ko \
-    msi001.ko \
-    msm_drm.ko \
-    mt2060.ko \
-    mt2063.ko \
-    mt20xx.ko \
-    mt2131.ko \
-    mt2266.ko \
-    mxl301rf.ko \
-    mxl5005s.ko \
-    mxl5007t.ko \
-    native_dlkm.ko \
-    pinctrl_lpi_dlkm.ko \
-    pinctrl_wcd_dlkm.ko \
-    platform_dlkm.ko \
-    q6_dlkm.ko \
-    q6_notifier_dlkm.ko \
-    q6_pdr_dlkm.ko \
-    qcom_edac.ko \
-    qm1d1b0004.ko \
-    qm1d1c0042.ko \
-    qt1010.ko \
-    r820t.ko \
-    rdbg.ko \
-    rmnet_core.ko \
-    rmnet_ctl.ko \
-    rmnet_offload.ko \
-    rmnet_shs.ko \
-    rx_macro_dlkm.ko \
-    sensors_vcnl36866.ko \
-    si2157.ko \
-    slimbus.ko \
-    slimbus-ngd.ko \
-    snd_event_dlkm.ko \
-    stub_dlkm.ko \
-    swr_ctrl_dlkm.ko \
-    swr_dlkm.ko \
-    swr_dmic_dlkm.ko \
-    swr_haptics_dlkm.ko \
-    tda18212.ko \
-    tda18218.ko \
-    tda18250.ko \
-    tda9887.ko \
-    tea5761.ko \
-    tea5767.ko \
-    tua9001.ko \
-    tuner-simple.ko \
-    tuner-types.ko \
-    tuner-xc2028.ko \
-    tx_macro_dlkm.ko \
-    va_macro_dlkm.ko \
-    wcd937x_dlkm.ko \
-    wcd937x_slave_dlkm.ko \
-    wcd938x_dlkm.ko \
-    wcd938x_slave_dlkm.ko \
-    wcd9xxx_dlkm.ko \
-    wcd_core_dlkm.ko \
-    wsa883x_dlkm.ko \
-    wsa_macro_dlkm.ko \
-    xc4000.ko \
-    xc5000.ko
-
-TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
-
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_OFFSET := 0x01000000
@@ -209,8 +125,13 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-TARGET_KERNEL_CONFIG := vendor/$(PRODUCT_DEVICE)_defconfig
-TARGET_KERNEL_SOURCE := kernel/asus/sm8350
+
+# Kernel Modules
+KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)
+KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/*.ko)
+BOARD_VENDOR_KERNEL_MODULES := $(KERNEL_MODULES)
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_MODULE_DIR)/vendor_dlkm.modules.load))
+BOARD_VENDOR_KERNEL_MODULES := $(KERNEL_MODULES)
 
 # Partitions
 BOARD_ASUS_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
@@ -242,13 +163,12 @@ TARGET_BOARD_PLATFORM := lahaina
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Recovery
+BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-BOOT_KERNEL_MODULES := \
-    focaltech_fts_zf.ko \
-    msm_drm.ko \
-    sensors_vcnl36866.ko
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_MODULE_DIR)/vendor_boot.modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(addprefix $(KERNEL_MODULE_DIR)/, $(notdir $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)))
 
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
