@@ -6,6 +6,7 @@
 
 #include <compositionengine/UdfpsExtension.h>
 #include <display/drm/sde_drm.h>
+#include <display/fod_defs.h>
 
 uint32_t getUdfpsZOrder(uint32_t z, bool touched) {
     if (touched) {
