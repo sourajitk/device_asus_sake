@@ -1139,10 +1139,10 @@ vendor/lib64/unnhal-acc-common.so
 vendor/lib64/unnhal-acc-gpu.so
 vendor/lib64/unnhal-acc-htp.so
 
-# PD
-vendor/bin/pd-mapper
-vendor/lib64/libpdmapper.so
-vendor/lib64/libpdnotifier.so
+# PD (LA.UM.9.14.r1-20200-LAHAINA.QSSI13.0)
+vendor/bin/pd-mapper|176975902d8f33a0f1581b5f21ea41946469bb55
+vendor/lib64/libpdmapper.so|d425fbfee40be42cf3fde76db9e7e89d63c27bfa
+vendor/lib64/libpdnotifier.so|b75095613610c7277f8cd32d32e538d0683b31df
 
 # Performance
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
