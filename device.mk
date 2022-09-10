@@ -207,7 +207,7 @@ LOCAL_KERNEL := $(TARGET_KERNEL_DIR)/Image
 PRODUCT_COPY_FILES += $(LOCAL_KERNEL):kernel
 
 # Kernel Headers
-PRODUCT_VENDOR_KERNEL_HEADERS := device/asus/sake-kernel/kernel-headers
+PRODUCT_VENDOR_KERNEL_HEADERS += device/asus/sake-kernel/kernel-headers
 
 # Keymaster
 PRODUCT_COPY_FILES += \
