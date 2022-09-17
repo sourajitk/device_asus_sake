@@ -224,6 +224,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/privapp-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-asus.xml \
     $(LOCAL_PATH)/privapp-permissions-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-asus.xml
 
+# Platform
+TARGET_BOARD_PLATFORM := lahaina
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
