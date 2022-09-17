@@ -219,7 +219,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     gps \
     media \
     perf \
-    usb
+    usb \
+    wfd
 
 PRODUCT_PACKAGES += \
     libjson \
@@ -308,13 +309,6 @@ PRODUCT_COPY_FILES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator.service.sake
-
-# WFD
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
-PRODUCT_PACKAGES += \
-    libwfdaac_vendor
 
 # WiFi
 PRODUCT_COPY_FILES += \
