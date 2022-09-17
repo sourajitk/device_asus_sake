@@ -227,10 +227,6 @@ PRODUCT_COPY_FILES += \
 # Platform
 TARGET_BOARD_PLATFORM := lahaina
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
-
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
