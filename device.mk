@@ -135,10 +135,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor
 
-# HALs
-PRODUCT_USES_QCOM_HARDWARE := true
-PRODUCT_BOARD_PLATFORM := lahaina
-
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport.vendor \
