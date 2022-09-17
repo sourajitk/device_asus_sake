@@ -212,8 +212,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     libOmxCore \
-    libavservices_minijail \
-    libavservices_minijail.vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_vndk.vendor \
     libmm-omxcore \
@@ -288,7 +286,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Qualcomm Components
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
-    audio
+    audio \
+    av
 
 # QMI
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
