@@ -243,7 +243,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     display \
     gps \
     media \
-    perf
+    perf \
+    usb
 
 # QMI
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
@@ -340,13 +341,6 @@ PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor
 
 # USB
-$(call inherit-product, vendor/qcom/opensource/usb/vendor_product.mk)
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
-
-TARGET_HAS_DIAG_ROUTER := true
 TARGET_KERNEL_VERSION := 5.4
 
 # Update Engine
