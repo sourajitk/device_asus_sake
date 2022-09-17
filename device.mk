@@ -165,8 +165,7 @@ PRODUCT_USES_ESE := false
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    kernel/asus/sm8350
+    $(LOCAL_PATH)
 
 # Networking
 PRODUCT_PACKAGES += \
