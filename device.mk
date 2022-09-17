@@ -124,23 +124,6 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
-# Display
-$(call inherit-product, hardware/qcom-caf/sm8350/display/config/display-product.mk)
-$(call inherit-product, vendor/qcom/opensource/commonsys-intf/display/config/display-interfaces-product.mk)
-$(call inherit-product, vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk)
-$(call inherit-product, vendor/qcom/opensource/commonsys/display/config/display-product-commonsys.mk)
-$(call inherit-product, vendor/qcom/opensource/display/config/display-product-vendor.mk)
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.lights-service.qti \
-    libtinyxml \
-    lights.qcom
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.supports_background_blur=1
-
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
@@ -270,6 +253,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
     audio \
     av \
+    display \
     media
 
 # QMI
