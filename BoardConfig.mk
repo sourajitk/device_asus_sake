@@ -80,9 +80,6 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 SOONG_CONFIG_qtidisplay_udfps := true
 TARGET_SCREEN_DENSITY := 440
 
-# FSConfig
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/hidl/asus_framework_matrix.xml \
