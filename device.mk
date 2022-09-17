@@ -221,10 +221,6 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Performance
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.perf@2.2.vendor
-
 # Permissions
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/hiddenapi-package-allowlist-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/asus-hiddenapi-package-allowlist.xml \
@@ -246,7 +242,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
     av \
     display \
     gps \
-    media
+    media \
+    perf
 
 # QMI
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true

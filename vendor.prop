@@ -128,9 +128,6 @@ ro.crypto.volume.metadata.method=dm-default-key
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
 
-# Performance
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # Radio
 persist.radio.multisim.config=dsds
 persist.vendor.radio.procedure_bytes=SKIP
