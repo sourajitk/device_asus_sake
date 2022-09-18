@@ -84,7 +84,6 @@ TARGET_SCREEN_DENSITY := 440
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/hidl/asus_framework_matrix.xml \
     $(DEVICE_PATH)/hidl/device_framework_matrix.xml \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     vendor/nxp/nfc/vendor_framework_compatibility_matrix.xml \
     vendor/nxp/secure_element/vendor_framework_compatibility_matrix.xml
 
