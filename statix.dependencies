@@ -2,5 +2,9 @@
   {
     "repository":  "android_vendor_asus",
     "target_path": "vendor/asus"
+  },
+  {
+    "repository":   "android_device_asus_sake-kernel",
+    "target_path":  "device/asus/sake-kernel"
   }
 ]
